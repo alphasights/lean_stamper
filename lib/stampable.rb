@@ -48,5 +48,3 @@ module Ddb
     end
   end
 end
-
-ActiveRecord::Base.send(:include, Ddb::Userstamp::Stampable) if defined?(ActiveRecord)

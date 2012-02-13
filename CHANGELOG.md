@@ -1,8 +1,21 @@
+== 0.0.2
+
+Including modules does all the work, no need to call stamper/stampable explicitly
+
+    include Ddb::Userstamp::Stampable
+    include Ddb::Userstamp::Stamper
+
+== 0.0.1
+
+Only creator and updater are set and other changes lost in history
+
+== Older changes
+
 2.0 (2-17-2008)
     * [Ben  Wyrosdick] - Added a migration helper that gives migration scripts a <tt>userstamps</tt>
                          method.
     * [Marshall Roch]  - Stamping can be temporarily turned off using the 'without_stamps' class
-                         method. 
+                         method.
       Example:
         Post.without_stamps do
           post = Post.find(params[:id])

@@ -2,18 +2,10 @@ module Ddb #:nodoc:
   module Userstamp
     module Stamper
       def self.included(base) # :nodoc:
-        base.extend(ClassMethods)
+        base.extend(Ddb::Userstamp::Stamper::ClassMethods)
       end
 
       module ClassMethods
-        def model_stamper
-          # don't allow multiple calls
-          return if self.included_modules.include?(Ddb::Userstamp::Stamper::InstanceMethods)
-          send(:extend, Ddb::Userstamp::Stamper::InstanceMethods)
-        end
-      end
-
-      module InstanceMethods
         # Used to set the stamper for a particular request. See the Userstamp module for more
         # details on how to use this method.
         def stamper=(object)
@@ -33,5 +25,3 @@ module Ddb #:nodoc:
     end
   end
 end
-
-ActiveRecord::Base.send(:include, Ddb::Userstamp::Stamper) if defined?(ActiveRecord)
