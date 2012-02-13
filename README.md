@@ -1,3 +1,7 @@
+== Fork info
+
+Please read the Changelog file for changes.
+
 = Userstamp Plugin (v 2.0)
 
 == Overview
@@ -43,12 +47,12 @@ method for very easily doing this:
         t.name
       end
     end
-    
+
     def self.down
       drop_table :users
     end
   end
-  
+
   class CreatePosts < ActiveRecord::Migration
     def self.up
       create_table :posts, :force => true do |t|
@@ -57,7 +61,7 @@ method for very easily doing this:
         t.title
       end
     end
-    
+
     def self.down
       drop_table :posts
     end
@@ -86,7 +90,7 @@ comes in. So in our example we'll want to use this method in both our User and P
     model_stamper
     stampable
   end
-  
+
   class Post < ActiveRecord::Base
     stampable
   end
@@ -100,7 +104,7 @@ User class. They are #stamper= and #stamper and look like this:
     else
       object
     end
-    
+
     Thread.current["#{self.to_s.downcase}_#{self.object_id}_stamper"] = object_stamper
   end
 
@@ -144,7 +148,7 @@ mode to have the plug-in use the old "_by" columns by default. To enable this mo
 following line to the RAILS_ROOT/config/environment.rb file:
 
   Ddb::Userstamp.compatibility_mode = true
-  
+
 If you are having a difficult time getting the Userstamp plug-in to work, I recommend you checkout
 the sample application that I created. You can find this application on GitHub[http://github.com/delynn/userstamp_sample]
 
