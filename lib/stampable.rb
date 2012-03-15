@@ -30,18 +30,18 @@ module Ddb
 
       private
         def has_stamper?
-          !User.stamper.nil?
+          !::User.stamper.nil?
         end
 
         def set_creator_attribute
           if respond_to?(:creator=) && has_stamper?
-            self.creator = User.stamper
+            self.creator = ::User.stamper
           end
         end
 
         def set_updater_attribute
           if respond_to?(:updater=) && has_stamper?
-            self.updater = User.stamper
+            self.updater = ::User.stamper
           end
         end
       end
