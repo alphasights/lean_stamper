@@ -12,5 +12,5 @@ Gem::Specification.new do |gem|
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.name          = "lean_stamper"
   gem.require_paths = ["lib"]
-  gem.version       = "0.0.4"
+  gem.version       = "0.0.5"
 end
