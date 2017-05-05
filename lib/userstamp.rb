@@ -14,8 +14,8 @@ module Ddb
     module Userstamp
       def self.included(base) # :nodoc:
         base.send           :include, InstanceMethods
-        base.before_filter  :set_stamper
-        base.after_filter   :reset_stamper
+        base.before_action  :set_stamper
+        base.after_action   :reset_stamper
       end
 
       module InstanceMethods
